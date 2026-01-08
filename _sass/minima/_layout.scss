@@ -10,8 +10,16 @@
   position: relative;
 }
 
+@font-face {
+  font-family: 'scifly';
+  src: url('/assets/fonts/SciFly-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .site-title {
   @include relative-font-size(1.625);
+  font-family: 'scifly', sans-serif;
   font-weight: 300;
   line-height: $base-line-height * $base-font-size * 2.25;
   letter-spacing: -1px;
@@ -183,12 +191,18 @@
 }
 
 .video-content {
-//   padding: $spacing-unit 0;
-//   flex: 1;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 .page-heading {
   @include relative-font-size(2);
+}
+
+.post-time {
+  font-size: $small-font-size;
+  color: $grey-color;
 }
 
 .films-list-heading {

@@ -2,6 +2,7 @@
 layout: post
 title: "Jagi Láddelaš"
 description: "You guys wanted a Netflix special — you got Aleksi in a lávvu."
+type: "film"
 image: '/assets/images/jagi-laddelas.jpg'
 ---
 

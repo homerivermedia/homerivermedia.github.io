@@ -8,24 +8,32 @@ layout: default
   {%- if site.posts.size > 0 -%}
     <div class="grid-container">
       {%- for post in site.posts -%}
-      <div class="grid-card">
-        {%- if post.image -%}
-          <a href="{{ post.url | relative_url }}">
-            <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}">
-          </a>
-        {%- endif -%}
-        <div class="grid-text">
-          <!-- <span class="films-meta">{{ post.date | date: site.minima.date_format | default: "%b %-d, %Y" }}</span> -->
-          <h4>
-            <a class="films-link" href="{{ post.url | relative_url }}">
-              {{ post.title | escape }}
+        {%- if post.type == "film" -%}
+        <div class="grid-card">
+          {%- if post.image -%}
+            <a href="{{ post.url | relative_url }}">
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}">
             </a>
-          </h4>
-          {%- if site.description -%}
-            {{ post.description | escape }}
           {%- endif -%}
+          <div class="grid-text">
+            <!-- <span class="films-meta">{{ post.date | date: site.minima.date_format | default: "%b %-d, %Y" }}</span> -->
+            <h4>
+              <a class="films-link" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </h4>
+            <div class ="post-time">
+              <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                {{ post.date | date: date_format }}
+              </time>
+            </div>
+            {%- if site.description -%}
+              {{ post.description | escape }}
+            {%- endif -%}
+          </div>
         </div>
-      </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   {%- endif -%}
